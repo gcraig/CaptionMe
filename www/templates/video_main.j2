@@ -1,0 +1,214 @@
+<!doctype html>
+
+<head>
+    
+    <title>Videos - Main</title>
+
+    {% block css %}
+        <style>
+            * { font-family:arial; }
+            {% include "css/style.css" %}
+        </style>
+    {% endblock %}
+
+    {# Latest compiled and minified CSS #}
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    {# Optional theme #}
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+    {# Latest compiled and minified JavaScript #}
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    {# Include JQuery Style File #}
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+    
+    {# Include JQuery File #}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    
+    {% block javascript %}
+        <script type="text/javascript">
+            {% include "js/jquery.tablesorter.js" %}
+        </script>
+    {% endblock %}
+
+    {# Include JQuery UI File #}
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+    {% block css2 %}
+        <style>
+            {% include "css/bootstrap-tagsinput.css" %}
+        </style>
+    {% endblock %}
+
+    {% block javascript2 %}
+        <script type="text/javascript">
+            {% include "js/bootstrap-tagsinput.js" %}
+        </script>        
+    {% endblock %}
+        
+    <style>
+        .label-info {
+            background-color: #E2E2B1;
+        }
+        .bootstrap-tagsinput .tag {
+            color: #666;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<center>
+
+{% include "header.j2" %}
+
+<div class="container">  
+  <div class="text-center">           
+      <div class="col-lg-3">
+      </div>
+      <div class="col-lg-6">
+        <h2>Search Videos</h2> 
+        <div class="input-group">
+          <input type="text" class="form-control pwd" value="Search Videos" id="SearchText">
+          <span class="input-group-btn">
+            <button class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-search"></i></button>
+          </span>          
+        </div>
+      </div>
+      <div class="col-lg-3">
+      </div>
+  </div>  
+</div>
+
+<br><br>
+<h2>Latest Movies</h2>
+
+{% if results %}
+
+    <table id="LatestMovieTable" class="tablesorter"> 
+        
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Name</th>
+                <th>Captions</th>
+                <th>Description</th>
+                <th>Tags</th>
+                {#
+                <th>Spam</th>   
+                <th>Id</th>
+                <th>Updated</th>
+                <th>URL</th>
+                #}
+            </tr>
+        </thead>
+        <tbody>
+    
+    {% for row in results %}
+        <tr>
+            <td>{{ row.video_year|e }}</td>
+            <td>{{ row.video_name|e }}</td>
+            <td align="center">
+                <a href="/caption/view/{{ row.video_id|e }}"><span class="glyphicon glyphicon-subtitles" alt="View"/></a>
+                <a href="/caption/dlo/{{ row.video_id|e }}"><span class="glyphicon glyphicon-save" alt="Save"/></a>
+                {# <a href="/caption/{{ row.video_id|e }}"><span class="glyphicon glyphicon-play" alt="Watch"/></a> #}
+            </td>
+            <td><font style="color: #999;">{{ row.video_description|e }}</font></td>
+            <td><input type="text" data-role="tagsinput" value="{{ row.video_tags|e }}"></td>
+            {#
+            <td><input type="checkbox" id="cb_{{ row.video_id|e }}"></td>
+            <td>{{ row.video_id|e }}</td>
+            <td><a href="{{ row['name']|e }}">{{ row[6]|e }}</a></td>
+            <td><a href="{{ row[2]|e }}">[Link]</a></td>
+            #}
+        </tr>
+    {% endfor %}
+
+        </tbody>
+    </table>
+
+ {# comments #}
+
+{% else %}
+
+    No videos found.
+
+{% endif %}
+
+{#
+
+<br><br>
+
+<h2>Latest TV Shows</h2>
+
+{% if data %}
+
+        <table id="LatestShowTable" class="tablesorter"> 
+        
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Tags</th>
+                <th>Spam</th>
+                #
+                <th>Id</th>
+                <th>Updated</th>
+                <th>URL</th>
+                #
+            </tr>
+        </thead>
+        <tbody>
+    
+    {% for row in results %}
+        <tr>
+            <td>{{ row.video_year|e }}</td>
+            <td>{{ row.video_name|e }}</td>
+            <td>{{ row.video_description|e }}</td>
+            <td>{{ row.video_tags|e }}</td>
+            <td><input type="checkbox" id="cb_{{ row.video_id|e }}"></td>
+            #
+            <td>{{ row.video_id|e }}</td>
+            <td><a href="{{ row['name']|e }}">{{ row[6]|e }}</a></td>
+            <td><a href="{{ row[2]|e }}">[Link]</a></td>
+            #
+        </tr>
+    {% endfor %}
+
+        </tbody>
+    </table>
+
+ </center>
+
+{% else %}
+
+    No videos found.
+
+{% endif %}
+
+#}
+
+<script type="text/javascript">
+    
+    $(document).ready(function() 
+        { 
+            $("#LatestMovieTable").tablesorter({widthFixed: true, widgets: ['zebra']}) 
+
+            {# $("#LatestShowTable").tablesorter({widthFixed: true, widgets: ['zebra']}) #}
+
+            $("#SearchText").click(function() {
+                $(this).val('');
+            });
+            
+        } 
+    ); 
+        
+</script>
+
+{% include "footer.j2" %}
+
+</body>
+</html>
