@@ -58,6 +58,15 @@ def dlo_caption(video_id):
 #    """Closes the database again at the end of the request."""
 #    mysql.close_connection()
 
+# Programming fonts
+# "font_face": "Akkurat-Mono",
+# "font_face": "Source Code Pro",
+# "font_face": "Fira Mono OT",
+# "font_face": "DejaVu Sans Mono",
+# "font_face": "Anonymous Pro",
+# "font_face": "Envy Code R",
+# "font_face": "Mako",
+
 if __name__ == '__main__':
     print("Started CaptionMe")
 
@@ -66,6 +75,6 @@ if __name__ == '__main__':
 
     app.run(
         host="0.0.0.0",
-        port=int("80"),
+        port=80,
         debug=True
     )

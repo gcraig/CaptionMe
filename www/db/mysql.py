@@ -55,7 +55,7 @@ class MySQL:
             results = []
             #for row in cursor.fetchall() :
             #    r = reg(cursor, row)
-            #    print("REG: ", r.id, r.name, r.description, r.status)
+            #    print("REG: ", r.id, r.name,  r.description, r.status)
 
             for row in resultset :
                 r = reg(cursor, row)
