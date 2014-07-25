@@ -36,8 +36,6 @@ ALTER TABLE caption_me.video_captions
 	REFERENCES videos (video_id)
 GO
 
-
-
 CREATE INDEX FK_videos ON caption_me.video_captions (video_id)
 GO
 
