@@ -11,6 +11,7 @@ class Video {
     private $codec;
     private $view_ctr;
     private $year;
+    private $captions_arry;
 
 }
 
