@@ -1,38 +1,44 @@
 {
-    "_id": ObjectId("57e32558bb069e2198ada623")
+	"_id": "ObjectId('57e32558bb069e2198ada623')",
+	"video_name": "",
+	"video_description": "",
+	"video_locale": "",
+	"video_length": "",
+	"video_year": "",
+	"video_mime_type": "",
+	"video_tags": "",
+	"video_thumbnail": "",
+	"video_thumbnail_filename": "",
+	"url_video": "",
+	"url_imdb": "",
 
-	video_name
-	video_description
-	video_locale
-	video_length
-	video_year
-	video_mime_type
-	video_tags
+	"captions": [{
+		"caption_id": 1,
+		"caption_language": "English",
+		"capion_filename": "",
+		"caption_size": 20000,
+		"caption_locale": "en_US",
+		"stats_rating": 5,
+		"stats_source": "",
+		"stats_downloaded": 1000,
+		"status": "active",
+		"date_created": "2016-01-15",
+		"date_updated": ""
+	}, {
+		"caption_id": 2,
+		"caption_language": "English",
+		"capion_filename": "",
+		"caption_size": 200000,
+		"caption_locale": "en_US",
+		"stats_rating": 5,
+		"stats_source": "",
+		"Stats_downloaded": 1000,
+		"status": "active",
+		"date_created": "2016-01-15",
+		"date_updated": ""
+	}],
 
-	video_thumbnail_filename
-
-	url_video
-	url_imdb
-
-	stats_downloads
-
-    captions [
-    1 : {
-		"caption_id" : 1,
-		"capion_filename" : "",
-		"caption_size" : 213432,
-		"caption_locale" : "en_US",
-		"stats_rating" : 5,
-		"stats_source" : "",
-		"stats_downloaded" : 1054,
-	  	"status" : "active",
-		"date_created" : "2016-01-15",
-	    "date_updated" : ""
-		},
-		],
-
-  	"status" : "active",
-	"date_created" : "2016-01-15",
-    "date_updated" : ""
-
+	"status": "active",
+	"date_created": "2016-01-15",
+	"date_updated": ""
 }
