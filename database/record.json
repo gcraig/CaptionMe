@@ -12,7 +12,9 @@
 	"url_video": "",
 	"url_imdb": "",
 
-	"captions": [{
+	"captions": 
+	[
+		{
 		"caption_id": 1,
 		"caption_language": "English",
 		"capion_filename": "",
@@ -24,7 +26,8 @@
 		"status": "active",
 		"date_created": "2016-01-15",
 		"date_updated": ""
-	}, {
+		}, 
+		{
 		"caption_id": 2,
 		"caption_language": "English",
 		"capion_filename": "",
@@ -36,7 +39,8 @@
 		"status": "active",
 		"date_created": "2016-01-15",
 		"date_updated": ""
-	}],
+		}
+	],
 
 	"status": "active",
 	"date_created": "2016-01-15",
