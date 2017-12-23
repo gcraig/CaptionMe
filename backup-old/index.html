@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>My todos</title>
+    </head>
+    <body>
+        <form id="inputform">
+            <input type="text" placeholder="Add a new todo..." />
+        </form>
+ 
+        <h1>my todos</h1>
+        <div id="todos">
+            <ul></ul>
+        </div>
+ 
+
+        <!-- handlebar mustache template -->
+        <script type="text/html" id="template">
+            <ul>
+            {{#todos}}
+                <li data-id="{{id}}">
+                    <input type="checkbox" class="remove" />
+                    {{text}}
+                </li>
+            {{/todos}}
+            </ul>
+
+            <p>{{size}} todos left</p>
+        </script>  
+        <!-- handlebar mustache template -->
+
+
+        <script src="http://cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.rc.1.js"></script>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="http://hay.github.com/stapes/stapes.min.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
